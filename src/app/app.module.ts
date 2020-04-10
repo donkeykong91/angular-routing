@@ -22,7 +22,11 @@ import {ProductServices} from './Products/services/product.service';
 
 const appRoutes: Routes = [
   {path: '', component: InstructionsComponent},
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, children: [
+    {path: '', component: LoginUserComponent},
+    {path: "login", component: LoginUserComponent},
+    {path: 'forgot', component: ResetPasswordComponent}
+  ]},
   {path: 'products', component: PermissionsComponent},
   {path: 'admin', component: AdminComponent}
 ];
