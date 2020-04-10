@@ -19,8 +19,8 @@ import { LoginComponent } from './login/login.component';
 import {ProductsComponent} from './Products/products.component';
 import {DetailsComponent} from './Products/details/details.component';
 import {ProductServices} from './services/product.service';
-import { LoggedInGuard } from './services/logged-in.guard';
-import { PerSavedGuardGuard } from './services/per-saved-guard.guard';
+import {LoggedInGuard} from './services/logged-in.guard';
+import {PerSavedGuardGuard} from './services/per-saved-guard.guard';
 
 const appRoutes: Routes = [
   {path: '', component: InstructionsComponent},
@@ -34,8 +34,7 @@ const appRoutes: Routes = [
       {path: '', component: InstructionsComponent},
       {path: 'details/:id', component: DetailsComponent}
     ]},
-  {path: 'admin', component: AdminComponent, 
-    canActivate: [LoggedInGuard],
+  {path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard],
     children: [
       {path: '', component: UsersComponent},
       {path: 'user-list', component: UsersComponent},
@@ -68,8 +67,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductServices,
-              LoggedInGuard,
-              PerSavedGuardGuard],
+    LoggedInGuard,
+    PerSavedGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
