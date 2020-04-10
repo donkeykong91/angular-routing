@@ -23,6 +23,7 @@ import {LoggedInGuard} from './services/logged-in.guard';
 import {PerSavedGuardGuard} from './services/per-saved-guard.guard';
 import { AdminModule } from './admin/admin.module';
 import { ProductsModule } from './Products/products.module';
+import { SharedModule } from './shared/shared.module';
 
 const appRoutes: Routes = [
   {path: '', component: InstructionsComponent},
@@ -31,6 +32,8 @@ const appRoutes: Routes = [
       {path: 'login', component: LoginUserComponent},
       {path: 'forgot', component: ResetPasswordComponent}
     ]},
+  {path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
+  {path: 'products', loadChildren: 'app/Products/products.module#ProductsModule'},
 ];
 @NgModule({
   declarations: [
@@ -38,13 +41,12 @@ const appRoutes: Routes = [
     LoginUserComponent,
     ResetPasswordComponent,
     ForgotPasswordComponent,
-    InstructionsComponent,
     LoginComponent,
     LoginUserComponent,
   ],
   imports: [
-    AdminModule,
     ProductsModule,
+    SharedModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],

@@ -9,7 +9,7 @@ import { PermissionsComponent } from './permissions/permissions.component';
 import { PerSavedGuardGuard } from '../services/per-saved-guard.guard';
 
 const adminRoute: Routes = [
-  {path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard],
+  {path: '', component: AdminComponent, canActivate: [LoggedInGuard],
   children: [
     {path: '', component: UsersComponent},
     {path: 'user-list', component: UsersComponent},
