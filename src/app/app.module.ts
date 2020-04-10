@@ -11,7 +11,8 @@ import {NotFoundComponent} from "./404/404.component";
 const appRoutes: Routes = [
   {path: '', component: OutletComponent},
   {path: 'login', component: LoginComponent}, 
-  {path: 'reset-password', component: ResetComponent}
+  {path: 'reset-password', component: ResetComponent},
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
