@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('parameters App', () => {
+describe('modualize App', () => {
   let page: AppPage;
 
   beforeEach(() => {
