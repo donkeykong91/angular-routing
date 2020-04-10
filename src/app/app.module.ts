@@ -22,7 +22,9 @@ import {ProductServices} from './Products/services/product.service';
 
 const appRoutes: Routes = [
   {path: '', component: InstructionsComponent},
-  
+  {path: 'login', component: LoginComponent},
+  {path: 'products', component: PermissionsComponent},
+  {path: 'admin', component: AdminComponent}
 ];
 @NgModule({
   declarations: [
