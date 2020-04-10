@@ -27,7 +27,10 @@ const appRoutes: Routes = [
     {path: "login", component: LoginUserComponent},
     {path: 'forgot', component: ResetPasswordComponent}
   ]},
-  {path: 'products', component: PermissionsComponent},
+  {path: 'products', component: ProductsComponent,
+    children: [
+      {path: 'details/:id', component: DetailsComponent}
+  ]},
   {path: 'admin', component: AdminComponent}
 ];
 @NgModule({
