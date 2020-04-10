@@ -18,20 +18,27 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import {ProductsComponent} from './Products/products.component';
 import {DetailsComponent} from './Products/details/details.component';
-import {ProductServices} from './Products/services/product.service';
+import {ProductServices} from './services/product.service';
 
 const appRoutes: Routes = [
   {path: '', component: InstructionsComponent},
   {path: 'login', component: LoginComponent, children: [
-    {path: '', component: LoginUserComponent},
-    {path: "login", component: LoginUserComponent},
-    {path: 'forgot', component: ResetPasswordComponent}
-  ]},
+      {path: '', component: LoginUserComponent},
+      {path: 'login', component: LoginUserComponent},
+      {path: 'forgot', component: ResetPasswordComponent}
+    ]},
   {path: 'products', component: ProductsComponent,
     children: [
+      {path: '', component: InstructionsComponent},
       {path: 'details/:id', component: DetailsComponent}
-  ]},
-  {path: 'admin', component: AdminComponent}
+    ]},
+  {path: 'admin', component: AdminComponent,
+    children: [
+      {path: '', component: UsersComponent},
+      {path: 'user-list', component: UsersComponent},
+      {path: 'add', component: AddUserComponent},
+      {path: 'permissions', component: PermissionsComponent, },
+    ]}
 ];
 @NgModule({
   declarations: [

@@ -12,4 +12,7 @@ export class PermissionsComponent implements OnInit {
   ngOnInit() {
   }
 
+  editsSaved() {
+    return window.confirm('Save Changes?');
+  }
 }
