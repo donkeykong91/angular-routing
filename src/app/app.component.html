@@ -4,7 +4,7 @@
   <div class="column" style="border-right: dotted; border-width: thin">
     <ul>
       <li *ngFor="let product of products" class="pad">
-        <div> {{product.name}}</div>
+        <a [routerLink]="['details', product.id]"> {{product.name}}</a>
       </li>
     </ul>
   </div>
