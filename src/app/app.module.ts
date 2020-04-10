@@ -1,32 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import {RouterModule, Routes} from "@angular/router";
-import {LoginComponent} from "./login/login.component";
-import {ResetComponent} from "./reset-password/reset-password.component";
-import {OutletComponent} from "./outlet/outlet.component";
-import {NotFoundComponent} from "./404/404.component";
+import { ProductServices } from './services/product.service';
+import { DetailsComponent } from './details/details.component';
+import { RouterModule, Routes } from '@angular/router';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 const appRoutes: Routes = [
-  {path: '', component: OutletComponent},
-  {path: 'login', component: LoginComponent}, 
-  {path: 'reset-password', component: ResetComponent},
-  {path: '**', component: NotFoundComponent}
-];
+  {path: '', component: InstructionsComponent},
+  {path: 'details/:id', component: DetailsComponent}
+  ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    OutletComponent,
-    LoginComponent,
-    ResetComponent
+    DetailsComponent,
+    InstructionsComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    ProductServices
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
