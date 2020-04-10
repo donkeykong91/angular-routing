@@ -5,9 +5,10 @@ import { ProductsComponent } from './products.component';
 import { InstructionsComponent } from '../instructions/instructions.component';
 import { DetailsComponent } from './details/details.component';
 import { ProductServices } from '../services/product.service';
+import { SharedModule } from '../shared/shared.module';
 
 const productRoutes: Routes = [
-  {path: 'products', component: ProductsComponent,
+  {path: '', component: ProductsComponent,
     children: [
       {path: '', component: InstructionsComponent},
       {path: 'details/:id', component: DetailsComponent}
@@ -16,6 +17,7 @@ const productRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild(productRoutes)
   ],
   declarations: [
