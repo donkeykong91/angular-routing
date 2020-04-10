@@ -9,7 +9,7 @@ import {OutletComponent} from "./outlet/outlet.component";
 import {NotFoundComponent} from "./404/404.component";
 
 const appRoutes: Routes = [
-  {path: '', component: OutletComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent}, 
   {path: 'reset-password', component: ResetComponent},
   {path: '**', component: NotFoundComponent}
@@ -20,7 +20,8 @@ const appRoutes: Routes = [
     AppComponent,
     OutletComponent,
     LoginComponent,
-    ResetComponent
+    ResetComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
