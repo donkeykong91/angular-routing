@@ -21,6 +21,7 @@ import {DetailsComponent} from './Products/details/details.component';
 import {ProductServices} from './services/product.service';
 import {LoggedInGuard} from './services/logged-in.guard';
 import {PerSavedGuardGuard} from './services/per-saved-guard.guard';
+import { AdminModule } from './admin/admin.module';
 
 const appRoutes: Routes = [
   {path: '', component: InstructionsComponent},
@@ -34,13 +35,6 @@ const appRoutes: Routes = [
       {path: '', component: InstructionsComponent},
       {path: 'details/:id', component: DetailsComponent}
     ]},
-  {path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard],
-    children: [
-      {path: '', component: UsersComponent},
-      {path: 'user-list', component: UsersComponent},
-      {path: 'add', component: AddUserComponent},
-      {path: 'permissions', component: PermissionsComponent, canDeactivate: [PerSavedGuardGuard]},
-    ]}
 ];
 @NgModule({
   declarations: [
@@ -48,9 +42,6 @@ const appRoutes: Routes = [
     ItemListComponent,
     ItemDetailsComponent,
     ItemEditComponent,
-    AddUserComponent,
-    EditUserComponent,
-    PermissionsComponent,
     LoginUserComponent,
     ResetPasswordComponent,
     ForgotPasswordComponent,
@@ -59,16 +50,13 @@ const appRoutes: Routes = [
     LoginUserComponent,
     ProductsComponent,
     DetailsComponent,
-    AdminComponent,
-    UsersComponent
   ],
   imports: [
+    AdminModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ProductServices,
-    LoggedInGuard,
-    PerSavedGuardGuard],
+  providers: [ProductServices,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
